@@ -11,7 +11,7 @@ class CustomerCrm extends Controller
     public function findClient(Request $request)
     {
         $request->validate([
-            'phone_number' => $request
+            'phone_number' => 'required'
         ]);
 
         $findCustomer = Customer::where('phone_number' , $request->phone_number)->first();
