@@ -19,3 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/find-customer',[\App\Http\Controllers\Api\CustomerCrm::class , 'findClient']);
+
+Route::get('/customers', [\App\Http\Controllers\Api\CustomerCrm::class , 'customers']);
+
+

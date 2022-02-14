@@ -26,4 +26,12 @@ class CustomerCrm extends Controller
 
 
     }
+
+
+    public function customers()
+    {
+        $customers = Customer::all();
+
+        return response()->json(['success' => true , 'data' => compact('customers')]);
+    }
 }
