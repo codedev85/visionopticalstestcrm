@@ -27,6 +27,24 @@ class CustomerCrm extends Controller
 
     }
 
+    public function findCustomerByID(Request $request)
+    {
+        $request->validate([
+            'customer_id' => 'required'
+        ]);
+
+        $findCustomer = Customer::where('id' , $request->customer_id)->first();
+
+        if(!$findCustomer)
+        {
+            return response()->json(['success' => false , 'message' => 'Could not find hte customer']);
+        }
+
+
+        return response()->json(['success' => true , 'message' => 'Customer found' , 'data' => compact('findCustomer')]);
+
+    }
+
 
     public function customers()
     {
