@@ -52,4 +52,25 @@ class CustomerCrm extends Controller
 
         return response()->json(['success' => true , 'data' => compact('customers')]);
     }
+
+    public function createAccount(Request $request)
+    {
+            $request->validate([
+                'full_name' => 'required',
+                'email' => 'required',
+                'address' => 'required',
+                'company_name' => 'required',
+                'phone_number' => 'required'
+            ]);
+
+          $newCustomer = new Customer();
+          $newCustomer->full_name = $request->full_name;
+          $newCustomer->email = $request->email;
+          $newCustomer->address = $request->address;
+          $newCustomer->company_name = $request->company_name;
+          $newCustomer->phone_number = $request->phone_number;
+          $newCustomer->save();
+
+          return response()->json(['success' => true , 'message' => 'Account created successfully']);
+    }
 }

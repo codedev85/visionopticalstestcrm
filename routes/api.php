@@ -24,4 +24,6 @@ Route::get('find-customer-by-id', [\App\Http\Controllers\Api\CustomerCrm::class 
 
 Route::get('/customers', [\App\Http\Controllers\Api\CustomerCrm::class , 'customers']);
 
+Route::post('create-account' ,[\App\Http\Controllers\Api\CustomerCrm::class , 'createAccount']);
+
 
