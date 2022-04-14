@@ -20,6 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/find-customer',[\App\Http\Controllers\Api\CustomerCrm::class , 'findClient']);
 
+Route::get('find-customer-by-email', [\App\Http\Controllers\Api\CustomerCrm::class ,'findClientByEmail']);
+
 Route::get('find-customer-by-id', [\App\Http\Controllers\Api\CustomerCrm::class , 'findCustomerByID']);
 
 Route::get('/customers', [\App\Http\Controllers\Api\CustomerCrm::class , 'customers']);
